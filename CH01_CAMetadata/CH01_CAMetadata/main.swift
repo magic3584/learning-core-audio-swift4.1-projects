@@ -34,11 +34,8 @@ if  let audioFilePath = NSString(utf8String: CommandLine.arguments[1])?.expandin
     theErr = AudioFileGetProperty(audioFile!, kAudioFilePropertyInfoDictionary, &dictionarySize, &dictionary)
     assert(theErr == noErr)
 
-//    print("dictionary: %@", dictionary)
-//    CGPDFDictionaryApplyFunction(dictionary!, { (key, object, info) -> Void in
-//        print("\(key), \(object), \(info)")
-//    }, nil)
-    
+    NSLog("dictionary: %@", dictionary!)
+
     theErr = AudioFileClose(audioFile!)
     assert(theErr == noErr)
     
