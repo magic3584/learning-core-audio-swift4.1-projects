@@ -70,8 +70,10 @@ while sampleCount < maxSampleCount {
         var sample:sint16 = i<wavelengthInSamples/2 ? sint16.max.bigEndian : sint16.min.bigEndian
         
         //Saw wave
-//        var sample:sint16 = (sint16(i)/sint16(wavelengthInSamples)*sint16.max*2 - sint16.max).bigEndian
 //        var sample = Int16(((Double(i) / Double(wavelengthInSamples)) * Double(Int16.max) * 2) - Double(Int16.max)).bigEndian
+        
+        //Sin wave
+//        var sample = Int16(Double(Int16.max) * sin(2 * .pi * (Double(i) / Double(wavelengthInSamples)))).bigEndian
         print(sample)
         //14
         audioErr = AudioFileWriteBytes(audioFile!, false, sampleCount*2, &bytesToWrite, &sample)
